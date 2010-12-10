@@ -6,6 +6,8 @@ Implementation of the command-line I{pyflakes} tool.
 import sys
 import os
 import _ast
+import getopt
+import textwrap
 
 checker = __import__('pyflakes.checker').checker
 
@@ -71,10 +73,23 @@ def checkPath(filename):
         print >> sys.stderr, "%s: %s" % (filename, msg.args[1])
         return 1
 
+def usage():
+    print textwrap.dedent("""\
+        USAGE: pyflakes [PATH [PATH]]
+
+        Checks for pyflakes in python source in each PATH.  If no paths are specified,
+        checks source provided on stdin.
+        """)
 
 def main():
     warnings = 0
     args = sys.argv[1:]
+    optlist, args = getopt.getopt(args, 'h', [ '--help' ])
+
+    for opt, optval in optlist:
+        if opt in ('-h', '--help'):
+            return usage()
+
     if args:
         for arg in args:
             if os.path.isdir(arg):
