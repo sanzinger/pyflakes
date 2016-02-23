@@ -1,5 +1,6 @@
 0.4.1:
   - this is a test message
+  - oh i've missed something
 
 0.4.0 (2009-11-25):
   - Fix reporting for certain SyntaxErrors which lack line number
