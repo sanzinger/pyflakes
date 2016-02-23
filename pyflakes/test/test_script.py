@@ -165,6 +165,8 @@ foo(bar=baz, bax)
         self.assertEquals(count, 1)
         self.assertEquals(
             err.getvalue(), "%s: Permission denied\n" % (sourcePath.path,))
+    if sys.platform != 'linux2':
+        test_permissionDenied.skip = "chmod(0) doesn't work on Windows"
 
 
     def test_misencodedFile(self):
