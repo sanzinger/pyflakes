@@ -7,7 +7,7 @@ setup(
     name="pyflakes",
     license="MIT",
     version="0.4.0",
-    description="passive checker of Python programs",
+    description="passive checker of Python programs testcomment",
     author="Phil Frost",
     maintainer="Moe Aboulkheir",
     maintainer_email="moe@divmod.com",
